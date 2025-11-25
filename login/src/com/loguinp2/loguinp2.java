@@ -5,8 +5,6 @@
 package com.loguinp2;
 import TecladoNumericoPanel.TecladoNumericoPanel; 
 import java.awt.BorderLayout; 
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 
 /**
  *
@@ -22,7 +20,6 @@ private TecladoNumericoPanel teclado;
      */
     public loguinp2() {
         initComponents();
-        this.setLocationRelativeTo(null);
         teclado = new TecladoNumericoPanel();
         connet.setLayout(new BorderLayout());
         connet.add(teclado, BorderLayout.CENTER);
@@ -46,16 +43,17 @@ private TecladoNumericoPanel teclado;
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        title = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        Contraseña = new javax.swing.JLabel();
+        Usuario = new javax.swing.JLabel();
+        Logo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         Passtxt = new javax.swing.JPasswordField();
         userTxt = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        Ingresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         connet = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -66,17 +64,19 @@ private TecladoNumericoPanel teclado;
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Roboto Condensed Light", 0, 36)); // NOI18N
-        jLabel3.setText("CONTRASEÑA");
-        jLabel3.setToolTipText("");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 540, -1, -1));
+        Contraseña.setFont(new java.awt.Font("Roboto Condensed Light", 0, 36)); // NOI18N
+        Contraseña.setText("CONTRASEÑA");
+        Contraseña.setToolTipText("");
+        jPanel3.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 540, -1, -1));
 
-        title.setFont(new java.awt.Font("Roboto Condensed Light", 0, 36)); // NOI18N
-        title.setText("USUARIO");
-        jPanel3.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 400, -1, -1));
+        Usuario.setFont(new java.awt.Font("Roboto Condensed Light", 0, 36)); // NOI18N
+        Usuario.setText("USUARIO");
+        jPanel3.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 400, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/gg-removebg-preview.png"))); // NOI18N
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 410, 350));
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/gg-removebg-preview.png"))); // NOI18N
+        jPanel3.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 410, 350));
+        Logo.getAccessibleContext().setAccessibleName("");
+        Logo.getAccessibleContext().setAccessibleDescription("");
 
         jSeparator1.setForeground(new java.awt.Color(51, 51, 51));
         jSeparator1.setAlignmentX(0.7F);
@@ -129,6 +129,36 @@ private TecladoNumericoPanel teclado;
         });
         jPanel3.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, 490, 50));
 
+        jPanel1.setBackground(new java.awt.Color(97, 164, 191));
+        jPanel1.setForeground(new java.awt.Color(1, 25, 2));
+        jPanel1.setFocusCycleRoot(true);
+
+        Ingresar.setBackground(new java.awt.Color(97, 164, 191));
+        Ingresar.setBorder(null);
+        Ingresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Ingresar.setFocusCycleRoot(true);
+        Ingresar.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        Ingresar.setLabel("Ingresar");
+        Ingresar.setOpaque(false);
+        Ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IngresarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 720, -1, 50));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/city-building-background-vector.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 620, 800));
@@ -147,19 +177,6 @@ private TecladoNumericoPanel teclado;
         );
 
         jPanel3.add(connet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 700, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,6 +236,10 @@ private TecladoNumericoPanel teclado;
     
     }//GEN-LAST:event_userTxtMousePressed
 
+    private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IngresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,16 +266,17 @@ private TecladoNumericoPanel teclado;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Contraseña;
+    private javax.swing.JButton Ingresar;
+    private javax.swing.JLabel Logo;
     private javax.swing.JPasswordField Passtxt;
+    private javax.swing.JLabel Usuario;
     private javax.swing.JPanel connet;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JLabel title;
     private javax.swing.JTextField userTxt;
     // End of variables declaration//GEN-END:variables
 }
